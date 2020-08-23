@@ -5,17 +5,13 @@ jobs:
     docker:
       - image: circleci/node:10.15.3-stretch
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "ab:29:75:db:20:fa:99:19:22:9c:d2:e3:38:78:0e:f1"
       - checkout
-      - restore_cache:
-          keys:
-            - npm-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Install packages
           command: npm install
-      - save_cache:
-          key: npm-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules
       - run:
           name: Run linter
           command: npx vue-cli-service lint
