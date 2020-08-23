@@ -10,8 +10,15 @@ jobs:
             - "3d:bd:06:12:d3:c3:d7:ca:47:8c:54:de:52:56:3d:2c"
       - checkout
       - run:
-          name: Checking SSH
-          command: echo $dp_key | base64 -di > ~/.ssh/circleci_maitrisangath
+          name: Create Key
+          command: echo $dp_key | base64 --decode > ~/.ssh/circleci_maitrisangath
+      - run:
+          name: List items
+          command: ls ~/.ssh
+      - run:
+          name: Add key
+          command: ssh-add ~/.ssh/circleci_maitrisangath
+
 workflows:
   version: 2
   main:
