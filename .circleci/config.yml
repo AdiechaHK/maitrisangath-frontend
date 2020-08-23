@@ -32,8 +32,9 @@ workflows:
   version: 2
   main:
     jobs:
-      deploy
-        filters:
-          branches:
-            only: master
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
  
