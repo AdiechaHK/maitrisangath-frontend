@@ -21,6 +21,12 @@ jobs:
       - run:
           name: Check after
           command: ls -la
+      - run:
+          name: Move to dist
+          command: cd dist
+      - run:
+          name: Check after moved
+          command: ls -la
 
 workflows:
   version: 2
