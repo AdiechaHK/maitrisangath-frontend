@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Checking SSH
-          command: echo $test
+          command: cat ~/.ssh/id_rsa
 workflows:
   version: 2
   main:
