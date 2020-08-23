@@ -5,19 +5,10 @@ jobs:
     docker:
       - image: circleci/node:10.15.3-stretch
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "3d:bd:06:12:d3:c3:d7:ca:47:8c:54:de:52:56:3d:2c"
       - checkout
-      - run:
-          name: Create Key
-          command: echo $dp_key | base64 -di > ~/.ssh/circleci_maitrisangath
-      - run:
-          name: Make proper permission
-          command:  chmod 400 ~/.ssh/circleci_maitrisangath
-      - run:
-          name: List items
-          command: ls -la ~/.ssh
-      - run:
-          name: Add key
-          command: ssh-add ~/.ssh/circleci_maitrisangath
       - run:
           name: Check Git SSH
           command: ssh -vvv git@github.com
