@@ -28,11 +28,14 @@ jobs:
           name: Build resources
           command: npm run build
       - run:
-          name: Remove all files
-          command: find . -type d -exec rm -rf {} +
+          name: Move files
+          command: cp -r dist ../dist
       - run:
-          name: Remove all folders except dist
-          command: find . ! -name 'dist' -type d -exec rm -rf {} +
+          name: Remove all filesfolders except dist
+          command: rm -rf ./
+      - run:
+          name: Move back files
+          command: cp -r ../dist/ ./
       - run:
           name: Check after moved
           command: ls -la
