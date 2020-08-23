@@ -37,17 +37,26 @@ jobs:
           name: Check after moved
           command: ls -la
       - run:
-          name: Initialize and commit git
+          name: Adding name
           command: git config --global user.name "Harikrushna"
       - run:
-          name: Initialize and commit git
+          name: Adding Email
           command: git config --global user.email "adiechahari@gmail.com"
+      - run:
+          name: Check git status
+          command: git status
       - run:
           name: Add all file changes
           command: git add --all
       - run:
+          name: Check git status
+          command: git status
+      - run:
           name: Making commit
           command: git commit -am "deploy"
+      - run:
+          name: Check git status
+          command: git status
       - run:
           name: Push to github page
           command: git push -f origin ph-pages
