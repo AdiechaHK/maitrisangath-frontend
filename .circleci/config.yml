@@ -33,7 +33,7 @@ workflows:
   main:
     jobs:
       deploy
-        filter:
+        filters:
           branches:
             only: master
  
