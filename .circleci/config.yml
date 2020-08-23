@@ -22,6 +22,9 @@ jobs:
           name: Check after
           command: ls -la
       - run:
+          name: Install dependancies
+          command: npm install
+      - run:
           name: Build resources
           command: npm run build
       - run:
