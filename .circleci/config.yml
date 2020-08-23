@@ -10,26 +10,8 @@ jobs:
             - "3d:bd:06:12:d3:c3:d7:ca:47:8c:54:de:52:56:3d:2c"
       - checkout
       - run:
-          name: Install packages
-          command: npm install
-      - run:
-          name: Run linter
-          command: npx vue-cli-service lint
-      - run:
-          name: Run tests
-          command: echo "This is just sample config, please replace this command with real tests :)"
-      - run:
-          name: Build and minify app
-          command: npm run  build
-      - run:
-          name: Setup Github user email
-          command: git config --global user.email "adiechahari@gmail.com" 
-      - run:
-          name: Setup Github user name
-          command: git config --global user.name "Circle CI Deployer"
-      - run:
-          name: Deploy to Github Pages.
-          command: sh ./deploy.sh
+          name: Checking SSH
+          command: ls ~/.ssh
 workflows:
   version: 2
   main:
