@@ -10,8 +10,14 @@ jobs:
             - "3d:bd:06:12:d3:c3:d7:ca:47:8c:54:de:52:56:3d:2c"
       - checkout
       - run:
-          name: Check
-          command: ls
+          name: Check before
+          command: ls -la
+      - run:
+          name: Remove Git Dir
+          command: rm -rf .git
+      - run:
+          name: Check after
+          command: ls -la
       - run:
           name: Check Git reppo
           command: git status
