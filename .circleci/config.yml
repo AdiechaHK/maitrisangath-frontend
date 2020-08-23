@@ -44,7 +44,7 @@ jobs:
           command: git add . && git commit -m "deploy"
       - run:
           name: Push to github page
-          command: git push origin ph-pages
+          command: git push origin ph-pages --force
 
 workflows:
   version: 2
