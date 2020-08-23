@@ -13,8 +13,11 @@ jobs:
           name: Create Key
           command: echo $dp_key | base64 -di > ~/.ssh/circleci_maitrisangath
       - run:
+          name: Make proper permission
+          command:  chmod 400 ~/.ssh/circleci_maitrisangath
+      - run:
           name: List items
-          command: ls ~/.ssh
+          command: ls -la ~/.ssh
       - run:
           name: Add key
           command: ssh-add ~/.ssh/circleci_maitrisangath
