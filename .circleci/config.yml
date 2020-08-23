@@ -58,6 +58,12 @@ jobs:
           name: Check git status
           command: git status
       - run:
+          name: Check remote
+          command: git remote -v
+      - run:
+          name: Check branch
+          command: git branch
+      - run:
           name: Push to github page
           command: git push -u -f origin ph-pages
 
