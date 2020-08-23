@@ -13,17 +13,14 @@ jobs:
           name: Check before
           command: ls -la
       - run:
+          name: Check git remote
+          command: git remote -v
+      - run:
           name: Remove Git Dir
           command: rm -rf .git
       - run:
           name: Check after
           command: ls -la
-      - run:
-          name: Check Git reppo
-          command: git status
-      - run:
-          name: Check Git SSH
-          command: ssh -vvv git@github.com
 
 workflows:
   version: 2
