@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Checking SSH
-          command: echo $dp_key | base64 --decode > ~/.ssh/circleci_maitrisangath
+          command: echo $dp_key | base64 -di > ~/.ssh/circleci_maitrisangath
 workflows:
   version: 2
   main:
