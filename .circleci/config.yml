@@ -59,7 +59,7 @@ jobs:
           command: git status
       - run:
           name: Push to github page
-          command: git push -f origin ph-pages
+          command: git push -u -f origin ph-pages
 
 workflows:
   version: 2
