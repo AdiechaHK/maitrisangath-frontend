@@ -26,7 +26,7 @@ jobs:
           command: rm -rf ./*
       - run:
           name: Remove few more hidden folder
-          command: rm -rf ./.git ./.circleci ./.gitignore
+          command: rm -rf ./.circleci ./.gitignore
       - run:
           name: Move back files
           command: cp -r ../dist/* ./
