@@ -10,32 +10,62 @@ jobs:
             - "3d:bd:06:12:d3:c3:d7:ca:47:8c:54:de:52:56:3d:2c"
       - checkout
       - run:
-          name: Check before
-          command: ls -la
-      - run:
-          name: Check git remote
-          command: git remote -v
-      - run:
-          name: Remove Git Dir
-          command: rm -rf .git
-      - run:
-          name: Check after
-          command: ls -la
-      - run:
           name: Install dependancies
           command: npm install
       - run:
           name: Build resources
           command: npm run build
       - run:
-          name: Remove all files
-          command: find . -type d -exec rm -rf {} +
+          name: Move files
+          command: cp -r dist ../dist
       - run:
-          name: Remove all folders except dist
-          command: find . ! -name 'dist' -type d -exec rm -rf {} +
+          name: Change branch
+          command: git checkout gh-pages
+      - run:
+          name: Change branch
+          command: git pull origin gh-pages
+      - run:
+          name: Remove all filesfolders except dist
+          command: rm -rf ./*
+      - run:
+          name: Remove few more hidden folder
+          command: rm -rf ./.circleci ./.gitignore
+      - run:
+          name: Move back files
+          command: cp -r ../dist/* ./
       - run:
           name: Check after moved
           command: ls -la
+      - run:
+          name: Adding name
+          command: git config --global user.name "Harikrushna"
+      - run:
+          name: Adding Email
+          command: git config --global user.email "adiechahari@gmail.com"
+      - run:
+          name: Check git status
+          command: git status
+      - run:
+          name: Add all file changes
+          command: git add --all
+      - run:
+          name: Check git status
+          command: git status
+      - run:
+          name: Making commit
+          command: git commit -am "deploy"
+      - run:
+          name: Check git status
+          command: git status
+      - run:
+          name: Check remote
+          command: git remote -v
+      - run:
+          name: Check branch
+          command: git branch
+      - run:
+          name: Push to github page
+          command: git push -u -f origin ph-pages
 
 workflows:
   version: 2
