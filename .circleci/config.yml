@@ -23,10 +23,10 @@ jobs:
           command: npm run  build
       - run:
           name: Setup Github user email
-          command: git config user.email "adiechahari@gmail.com" 
+          command: git config --global user.email "adiechahari@gmail.com" 
       - run:
           name: Setup Github user name
-          command: git config user.name "Circle CI Deployer"
+          command:git config --global user.name "Circle CI Deployer"
       - run:
           name: Deploy to Github Pages.
           command: sh ./deploy.sh
