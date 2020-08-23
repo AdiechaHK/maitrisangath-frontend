@@ -10,15 +10,6 @@ jobs:
             - "3d:bd:06:12:d3:c3:d7:ca:47:8c:54:de:52:56:3d:2c"
       - checkout
       - run:
-          name: Check before
-          command: ls -la
-      - run:
-          name: Check git remote
-          command: git remote -v
-      - run:
-          name: Check after
-          command: ls -la
-      - run:
           name: Install dependancies
           command: npm install
       - run:
@@ -28,26 +19,26 @@ jobs:
           name: Move files
           command: cp -r dist ../dist
       - run:
+          name: Change branch
+          command: git checkout gh-pages
+      - run:
           name: Remove all filesfolders except dist
           command: rm -rf ./*
       - run:
-          name: Move back files
-          command: cp -r ../dist/* ./
-      - run:
           name: Remove few more hidden folder
           command: rm -rf ./.git ./.circleci ./.gitignore
+      - run:
+          name: Move back files
+          command: cp -r ../dist/* ./
       - run:
           name: Check after moved
           command: ls -la
       - run:
           name: Initialize and commit git
-          command: git init && git add --all && git commit -m "deploy at $(date)"
-      - run:
-          name: Initialize git remote
-          command: git remote add origin $CIRCLE_REPOSITORY_URL 
+          command: git add . && git commit -m "deploy"
       - run:
           name: Push to github page
-          command: git remote -v
+          command: git push origin ph-pages
 
 workflows:
   version: 2
