@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Checking SSH
-          command: cat ~/.ssh/known_hosts
+          command: echo $dp_key | base64 --decode
 workflows:
   version: 2
   main:
