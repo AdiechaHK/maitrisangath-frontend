@@ -22,6 +22,11 @@ jobs:
           name: Build and minify app
           command: npm run  build
       - run:
+          name: Git user setup
+          command: 
+            - git config user.email "adiechahari@gmail.com"
+            - git config user.name "Circle CI Deployer"
+      - run:
           name: Deploy to Github Pages.
           command: sh ./deploy.sh
 workflows:
