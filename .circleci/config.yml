@@ -1,0 +1,40 @@
+version: 2
+
+jobs:
+  deploy:
+    docker:
+      - image: circleci/node:10.15.3-stretch
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npm-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install packages
+          command: npm install
+      - save_cache:
+          key: npm-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - run:
+          name: Run linter
+          command: npx vue-cli-service lint
+      - run:
+          name: Run tests
+          command: echo "This is just sample config, please replace this command with real tests :)"
+      - run:
+          name: Build and minify app
+          command: npm run  build
+      - run:
+          name: Deploy to Github Pages.
+          command: sh ./deploy.sh
+workflows:
+  version: 2
+  main:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+ 
