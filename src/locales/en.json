@@ -20,7 +20,12 @@
     }
   },
   "site": {
-    "name": "Maitrisangath"
+    "name": "Maitrisangath",
+    "slogan": "New defination of retired persons friendship."
   },
-  "message": "hello i18n !!"
+  "lang": {
+    "label": "Language",
+    "en": "English",
+    "gu": "Gujarati"
+  }
 }

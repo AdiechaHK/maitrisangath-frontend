@@ -3,7 +3,9 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Maitrisangath</a>
+          <router-link to="/" class="navbar-brand">
+            {{ $t('site.name') }}
+          </router-link>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#app-navbar-collapse" aria-controls="app-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -12,9 +14,6 @@
 
         <div id="app-navbar-collapse" class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <router-link to="/" class="nav-link">{{ $t('sections.home.title') }}</router-link>
-            </li>
             <li class="nav-item">
               <router-link to="/friends" class="nav-link">{{ $t('sections.friends.title') }}</router-link>
             </li>
@@ -31,16 +30,16 @@
               <router-link to="/contact" class="nav-link">{{ $t('sections.contact.title') }}</router-link>
             </li>
           </ul>
-          {{ $t('message') }}
+          
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle nav-link">
-                Language
+                {{ $t('lang.label') }}
                 <span class="caret"></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#" @click="setLang('gu')">Gujrati</a>
-                <a class="dropdown-item" href="#" @click="setLang('en')">English</a>
+                <a class="dropdown-item" href="#" @click="setLang('gu')">{{ $t('lang.gu') }}</a>
+                <a class="dropdown-item" href="#" @click="setLang('en')">{{ $t('lang.en') }}</a>
               </div>
             </li>
           </ul>

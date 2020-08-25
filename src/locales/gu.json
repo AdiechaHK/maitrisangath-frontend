@@ -1,26 +1,31 @@
 {
   "sections": {
-  "home": {
-    "title": "Home"
-  },
-  "friends": {
-    "title": "મિત્રો"
-  },
-  "activity": {
-    "title": "પ્રવૃત્તિ"
-  },
-  "govrules": {
-    "title": "સરકારી નિયમો"
-  },
-  "articles": {
-    "title": "લેખ"
-  },
-  "contact": {
-    "title": "સંપર્ક"
-  }
+    "home": {
+      "title": "Home"
+    },
+    "friends": {
+      "title": "મિત્રો"
+    },
+    "activity": {
+      "title": "પ્રવૃત્તિ"
+    },
+    "govrules": {
+      "title": "સરકારી નિયમો"
+    },
+    "articles": {
+      "title": "લેખ"
+    },
+    "contact": {
+      "title": "સંપર્ક"
+    }
   },
   "site": {
-  "name": "મૈત્રીસંગાથ"
+    "name": "મૈત્રીસંગાથ",
+    "slogan": "નિવૃતોની મૈત્રીની નવી પરિભાષા."
   },
-  "message": "hello i18n !!"
+  "lang": {
+    "label": "ભાષા",
+    "en": "અંગ્રેજી",
+    "gu": "ગુજરાતી"
+  }
 }

@@ -6,9 +6,9 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <h1 class="main-title">
-             Maitrisangath 
+             {{ $t('site.name') }} 
           </h1>
-          <h1> Subtitle <br>&nbsp;</h1>
+          <h1> {{ $t('site.slogan') }} <br>&nbsp;</h1>
         </div>
       </div>
 
