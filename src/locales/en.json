@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "home": {
+      "title": "Home"
+    },
+    "friends": {
+      "title": "Friends"
+    },
+    "activity": {
+      "title": "activity"
+    },
+    "govrules": {
+      "title": "Gov. Rules"
+    },
+    "articles": {
+      "title": "Articles"
+    },
+    "contact": {
+      "title": "Contact"
+    }
+  },
+  "site": {
+    "name": "Maitrisangath"
+  },
+  "message": "hello i18n !!"
+}

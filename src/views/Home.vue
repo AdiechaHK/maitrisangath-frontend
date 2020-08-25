@@ -6,9 +6,9 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <h1 class="main-title">
-             મૈત્રીસંગાથ 
+             Maitrisangath 
           </h1>
-          <h1> નિવૃતોની મૈત્રીની નવી પરિભાષા <br>&nbsp;</h1>
+          <h1> Subtitle <br>&nbsp;</h1>
         </div>
       </div>
 

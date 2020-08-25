@@ -1,0 +1,26 @@
+{
+  "sections": {
+  "home": {
+    "title": "Home"
+  },
+  "friends": {
+    "title": "મિત્રો"
+  },
+  "activity": {
+    "title": "પ્રવૃત્તિ"
+  },
+  "govrules": {
+    "title": "સરકારી નિયમો"
+  },
+  "articles": {
+    "title": "લેખ"
+  },
+  "contact": {
+    "title": "સંપર્ક"
+  }
+  },
+  "site": {
+  "name": "મૈત્રીસંગાથ"
+  },
+  "message": "hello i18n !!"
+}
