@@ -49,9 +49,6 @@ export default {
         i.middle_name.charAt(0).toUpperCase() + "."
       ].join(" ");
     }
-  },
-  mounted() {
-    console.log("info", this.info);
   }
 }
 </script>

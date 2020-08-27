@@ -3,8 +3,7 @@
     <div class="row">
       <div class="col text-left">
         <label>Sort By: </label> 
-        <select name="sort_by" class="form-control">
-          <option value="" selected="selected"> -- Select -- </option>
+        <select v-model="col" class="form-control">
           <option value="surname"> Surname </option>
           <option value="name"> Name </option>
           <option value="date_of_birth"> Date of birth </option>
@@ -12,9 +11,9 @@
         </select>
       </div>
       <div class="col text-left">
-        <label>City</label> 
-        <select name="city" class="form-control">
-          <option value="">-- Select City --</option>
+        <label>City</label>
+        <select v-model="city" class="form-control">
+          <option value="0">-- Select City --</option>
           <option value="1"> Rajkot </option>
           <option value="2"> Jamnagar </option>
           <option value="3"> Junagadh </option>
@@ -42,14 +41,23 @@
           <option value="25"> Surendranagar </option>
         </select>
       </div>
-      <div class="col text-left"><label>Search</label> <input type="text" name="q" value="" class="form-control"></div>
+      <div class="col text-left"><label>Search</label> <input type="text" v-model="q" value="" class="form-control"></div>
       <div class="col text-right">
-        <button type="submit" class="btn btn-info" style="margin-top: 27px;"> Go !</button>
+        <label>Pages</label>
+        <select v-model="lim" class="form-control">
+          <option value="">-- Pages --</option>
+          <option value="10"> 10 Pages </option>
+          <option value="25"> 25 Pages </option>
+          <option value="100"> 100 Pages </option>
+        </select>
       </div>
     </div>
     <br> 
 
-   <PersonBlock v-for="p in persons" :info="p" :key="p.id"></PersonBlock>
+    <Pagination v-model="pg" :total="ttlPages"></Pagination>
+
+    <PersonBlock v-for="p in paginateFilteredList" :info="p" :key="p.id"></PersonBlock>
+
   </div>
 </template>
 
@@ -57,20 +65,44 @@
 
 <script>
 
-// https://raw.githubusercontent.com/AdiechaHK/maitrisangath-data/master/friends.json
 import PersonBlock from '@/components/PersonBlock.vue'
+import Pagination from '@/components/Pagination.vue'
 import axios from 'axios'
 
 
 export default {
-  name: 'Home',
+  name: 'Friends',
   components: {
+    Pagination,
     PersonBlock
   },
   data() { 
     return {
       persons: [],
-      some: ''
+      lim: 10,
+      pg: 1,
+      city: 0,
+      col: 'name',
+      q: ''
+    }
+  },
+  computed: {
+    filterList() {
+      let compare = (a,b) => a[this.col] > b[this.col];
+      let cityFilter = i => this.city == 0 || i.city_id == this.city;
+      let searchFilter = i => this.q == '' || (this.q, i.name.toLowerCase().indexOf(this.q.toLowerCase()) != -1 || this.q, i.surname.toLowerCase().indexOf(this.q.toLowerCase()) != -1);
+      return this.persons.filter(cityFilter).filter(searchFilter).sort(compare);
+    },
+    paginateFilteredList() {
+      let start = (this.pg - 1) * this.lim;
+      let end = start + this.lim;
+      let len = this.filterList.length;
+      end = end > len - 1 ? len - 1: end;
+      return this.filterList.slice(start, end);
+    },
+    ttlPages() {
+      let rem = this.filterList.length % this.lim;
+      return Math.floor(this.filterList.length / this.lim) + (rem > 0? 1: 0);
     }
   },
   async created() {
