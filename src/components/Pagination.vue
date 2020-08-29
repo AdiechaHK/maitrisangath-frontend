@@ -1,7 +1,5 @@
 <template>
   <div class="pagination">
-    Hello pagination {{ value }}, Pages: {{ total }}
-
     <nav aria-label="Page navigation example" v-if="total > 0 && value > 0">
       <ul class="pagination">
         <li :class="['page-item', {'disabled': value == 1}]" title="First" @click="first()">
@@ -25,7 +23,7 @@
         </li>
 
         <!-- Current -->
-        <li class="page-item disabled">
+        <li class="page-item">
           <a class="page-link" href="#" @click="gotoPg()">{{value}}</a>
         </li>
 
@@ -51,7 +49,6 @@
         </li>
       </ul>
     </nav>
-
   </div>
 </template>
 
@@ -93,7 +90,12 @@ export default {
       }
     },
     gotoPg() {
-      console.log("nothng");
+      let newPg = prompt("Jump To Page Number:")
+      if (newPg > 0 && newPg <= this.total) {
+        this.$emit('input', newPg);
+      } else {
+        alert("Invalid number entered !");
+      }
     }
   }
 }

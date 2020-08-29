@@ -46,17 +46,20 @@
         <label>Pages</label>
         <select v-model="lim" class="form-control">
           <option value="">-- Pages --</option>
+          <option value="5"> 5 Pages </option>
           <option value="10"> 10 Pages </option>
           <option value="25"> 25 Pages </option>
           <option value="100"> 100 Pages </option>
         </select>
-      </div>
+        </div>
     </div>
     <br> 
 
     <Pagination v-model="pg" :total="ttlPages"></Pagination>
 
     <PersonBlock v-for="p in paginateFilteredList" :info="p" :key="p.id"></PersonBlock>
+
+    <Pagination v-model="pg" :total="ttlPages"></Pagination>
 
   </div>
 </template>
@@ -69,7 +72,6 @@ import PersonBlock from '@/components/PersonBlock.vue'
 import Pagination from '@/components/Pagination.vue'
 import axios from 'axios'
 
-
 export default {
   name: 'Friends',
   components: {
@@ -79,6 +81,7 @@ export default {
   data() { 
     return {
       persons: [],
+      list: [],
       lim: 10,
       pg: 1,
       city: 0,
@@ -86,16 +89,32 @@ export default {
       q: ''
     }
   },
+  watch: {
+    col: function(nCol) {
+      this.persons = this.persons.sort((a,b) => a[nCol] > b[nCol] ? 1: -1);
+    }
+  },
   computed: {
     filterList() {
-      let compare = (a,b) => a[this.col] > b[this.col];
       let cityFilter = i => this.city == 0 || i.city_id == this.city;
-      let searchFilter = i => this.q == '' || (this.q, i.name.toLowerCase().indexOf(this.q.toLowerCase()) != -1 || this.q, i.surname.toLowerCase().indexOf(this.q.toLowerCase()) != -1);
-      return this.persons.filter(cityFilter).filter(searchFilter).sort(compare);
+      let searchFilter = i => {
+        
+        /* Cheeck if query is empty then we allow all records */
+        if (this.q == '') return true;
+        
+        /* Check if query word found in name then we allow that record */
+        if (i.name.toLowerCase().indexOf(this.q.toLowerCase()) != -1) return true;
+         
+        /* Check if query word found in surname then we allow that record */
+        if (i.surname.toLowerCase().indexOf(this.q.toLowerCase()) != -1) return true;
+
+        return false;
+      }
+      return this.persons.filter(cityFilter).filter(searchFilter);
     },
     paginateFilteredList() {
-      let start = (this.pg - 1) * this.lim;
-      let end = start + this.lim;
+      let start = Number((Number(this.pg) - 1) * Number(this.lim));
+      let end = start + Number(this.lim);
       let len = this.filterList.length;
       end = end > len - 1 ? len - 1: end;
       return this.filterList.slice(start, end);
@@ -108,9 +127,8 @@ export default {
   async created() {
     try {
       const res = await axios.get('https://raw.githubusercontent.com/AdiechaHK/maitrisangath-data/master/friends.json');
-      console.log(res.status);
       if (res.status == 200) {
-        this.persons = res.data.data;
+        this.persons = res.data.data.sort((a,b) => a[this.col] > b[this.col] ? 1: -1);
       }
     } catch (e) {
       console.error(e.message);
