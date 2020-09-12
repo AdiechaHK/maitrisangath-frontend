@@ -18,12 +18,12 @@
          <div class="col text-center"><img src="images/Emblem_of_India.png" alt="Emblem of India"></div>
       </div>
 
-      <div class="birthday-block" v-if="bdayWithinDays(2).length">
+      <div class="birthday-block" v-if="bdayWithinDays(1).length">
         <div class="row text-center">
           <img src="images/bouquet.png" class="col birthday-img h-flip">
           <h3 class="col birthday-txt">
             <div>{{ $t('sections.home.block.birthday_wishes') }}</div>
-            <div v-for="x in bdayWithinDays(7)" :key="x.id">{{ x | bdname }}</div>
+            <div v-for="x in bdayWithinDays(1)" :key="x.id">{{ x | bdname }}</div>
           </h3>
           <img src="images/bouquet.png" class="col birthday-img">
         </div>
