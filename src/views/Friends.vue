@@ -2,54 +2,56 @@
   <div class="friends mt-3">
     <div class="row">
       <div class="col text-left">
-        <label>Sort By: </label> 
+        <label>{{$t('sections.friends.filters.sort.caption')}}</label> 
         <select v-model="col" class="form-control">
-          <option value="surname"> Surname </option>
-          <option value="name"> Name </option>
-          <option value="date_of_birth"> Date of birth </option>
-          <option value="date_of_retirement"> Date of retierment </option>
+          <option value="surname"> {{ $t('sections.friends.filters.sort.options.surname') }} </option>
+          <option value="name"> {{ $t('sections.friends.filters.sort.options.name') }} </option>
+          <option value="date_of_birth"> {{ $t('sections.friends.filters.sort.options.date_of_birth') }} </option>
+          <option value="date_of_retirement"> {{ $t('sections.friends.filters.sort.options.date_of_retirement') }} </option>
         </select>
+
+
       </div>
       <div class="col text-left">
-        <label>City</label>
+        <label>{{$t('sections.friends.filters.city.caption')}}</label>
         <select v-model="city" class="form-control">
-          <option value="0">-- Select City --</option>
-          <option value="1"> Rajkot </option>
-          <option value="2"> Jamnagar </option>
-          <option value="3"> Junagadh </option>
-          <option value="4"> Morbi </option>
-          <option value="5"> Gondal </option>
-          <option value="6"> Porbandar </option>
-          <option value="7"> Bhuj </option>
-          <option value="8"> Gandhidham </option>
-          <option value="9"> Anjar </option>
-          <option value="10"> Adipur </option>
-          <option value="11"> Mundra </option>
-          <option value="12"> Amreli </option>
-          <option value="13"> Bhavnagar </option>
-          <option value="14"> Jetpur </option>
-          <option value="15"> Dhoraji </option>
-          <option value="16"> Upleta </option>
-          <option value="17"> Kesod </option>
-          <option value="18"> Veraval </option>
-          <option value="19"> Kalavad </option>
-          <option value="20"> Dhrol </option>
-          <option value="21"> Jodiya </option>
-          <option value="22"> Jamkhabhadiya </option>
-          <option value="23"> Dwarka </option>
-          <option value="24"> Mandvi (kutch) </option>
-          <option value="25"> Surendranagar </option>
+          <option value="0"> {{ $t('sections.friends.filters.city.options.nil') }} </option>
+          <option value="1"> {{ $t('sections.friends.filters.city.options.rjt') }} </option>
+          <option value="2"> {{ $t('sections.friends.filters.city.options.jam') }} </option>
+          <option value="3"> {{ $t('sections.friends.filters.city.options.jun') }} </option>
+          <option value="4"> {{ $t('sections.friends.filters.city.options.mrb') }} </option>
+          <option value="5"> {{ $t('sections.friends.filters.city.options.gnd') }} </option>
+          <option value="6"> {{ $t('sections.friends.filters.city.options.prb') }} </option>
+          <option value="7"> {{ $t('sections.friends.filters.city.options.bhj') }} </option>
+          <option value="8"> {{ $t('sections.friends.filters.city.options.gdm') }} </option>
+          <option value="9"> {{ $t('sections.friends.filters.city.options.anj') }} </option>
+          <option value="10"> {{ $t('sections.friends.filters.city.options.adp') }} </option>
+          <option value="11"> {{ $t('sections.friends.filters.city.options.mdr') }} </option>
+          <option value="12"> {{ $t('sections.friends.filters.city.options.amr') }} </option>
+          <option value="13"> {{ $t('sections.friends.filters.city.options.bvn') }} </option>
+          <option value="14"> {{ $t('sections.friends.filters.city.options.jtp') }} </option>
+          <option value="15"> {{ $t('sections.friends.filters.city.options.drj') }} </option>
+          <option value="16"> {{ $t('sections.friends.filters.city.options.upl') }} </option>
+          <option value="17"> {{ $t('sections.friends.filters.city.options.ksd') }} </option>
+          <option value="18"> {{ $t('sections.friends.filters.city.options.vrv') }} </option>
+          <option value="19"> {{ $t('sections.friends.filters.city.options.klv') }} </option>
+          <option value="20"> {{ $t('sections.friends.filters.city.options.drl') }} </option>
+          <option value="21"> {{ $t('sections.friends.filters.city.options.jdy') }} </option>
+          <option value="22"> {{ $t('sections.friends.filters.city.options.kby') }} </option>
+          <option value="23"> {{ $t('sections.friends.filters.city.options.dwk') }} </option>
+          <option value="24"> {{ $t('sections.friends.filters.city.options.mdv') }} </option>
+          <option value="25"> {{ $t('sections.friends.filters.city.options.sng') }} </option>
         </select>
       </div>
-      <div class="col text-left"><label>Search</label> <input type="text" v-model="q" value="" class="form-control"></div>
+      <div class="col text-left"><label>{{$t('sections.friends.filters.search.caption')}}</label> <input type="text" v-model="q" value="" class="form-control"></div>
       <div class="col text-right">
-        <label>Pages</label>
+        <label>{{$t('pagination.pages')}}</label>
         <select v-model="lim" class="form-control">
-          <option value="">-- Pages --</option>
-          <option value="5"> 5 Pages </option>
-          <option value="10"> 10 Pages </option>
-          <option value="25"> 25 Pages </option>
-          <option value="100"> 100 Pages </option>
+          <option value="">-- {{ $t('pagination.pages') }} --</option>
+          <option value="5"> 5 </option>
+          <option value="10"> 10 </option>
+          <option value="25"> 25 </option>
+          <option value="100"> 100 </option>
         </select>
         </div>
     </div>

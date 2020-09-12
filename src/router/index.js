@@ -24,6 +24,11 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/Friends.vue')
   },
   {
+    path: '/friend/:fid',
+    name: 'FriendDetails',
+    component: () => import(/* webpackChunkName: "about" */ '../views/FriendDetails.vue')
+  },
+  {
     path: '/activity',
     name: 'Activity',
     component: () => import(/* webpackChunkName: "about" */ '../views/Activity.vue')

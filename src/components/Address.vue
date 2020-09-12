@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="address">
       <div v-for="l in address" :key="l">
         {{l}}
       </div>

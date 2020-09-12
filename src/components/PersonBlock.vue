@@ -2,12 +2,17 @@
   <div class="hello row">
     <div class="col-md-12">
       <div class="main-holder">
-        <div class="image-continer"><img src="https://www.brightlinkinternational.com//assets/images/team/profile-1.png" class="member-photo"></div>
+        <!--
+         https://raw.githubusercontent.com/AdiechaHK/maitrisangath-data/master/assets/thumb/00XImQSg_1485894161.jpg
+
+         https://www.brightlinkinternational.com//assets/images/team/profile-1.png
+         -->
+        <div class="image-continer"><img :src="info|dp" class="member-photo"></div>
         <div class="content">
           <h4>
-            <a href="#">
-              {{ info | dp }}
-            </a>
+            <router-link :to="{name:'FriendDetails',params:{fid:info.id}}">
+              {{ info | dn }}
+            </router-link>
             - Mob.: {{ info.mobile }}
           </h4>
           <p>
@@ -39,6 +44,12 @@ export default {
       return dt.toDateString();
     },
     dp(i) {
+      console.log(i);
+      let fallback = "https://www.brightlinkinternational.com//assets/images/team/profile-1.png";
+      let preUrl = "https://raw.githubusercontent.com/AdiechaHK/maitrisangath-data/master/assets/thumb/";
+      return i.photo ? preUrl + i.photo : fallback;
+    },
+    dn(i) {
       const cap = (s) => {
         if (typeof s !== 'string') return ''
         return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()

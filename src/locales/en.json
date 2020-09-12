@@ -1,10 +1,62 @@
 {
   "sections": {
     "home": {
-      "title": "Home"
+      "title": "Home",
+      "block": {
+        "birthday_heading": "Upcomming Birthdays",
+        "birthday_statement": "{name} is turning {age} years on {date} {month} ({day})",
+        "news_heading": "News by maitrisangath",
+        "no_news": "No news to be shown for now..."
+      }
     },
     "friends": {
-      "title": "Friends"
+      "title": "Friends",
+      "filters": {
+        "sort": {
+          "caption": "Sort By",
+          "options": {
+            "surname": "Surname",
+            "name": "Name",
+            "date_of_birth": "Date of birth",
+            "date_of_retirement": "Date of retierment"
+          }
+        },
+        "city": {
+          "caption": "City",
+          "options": {
+
+            "nil": "-- Select City --",
+            "rjt": "Rajkot",
+            "jam": "Jamnagar",
+            "jun": "Junagadh",
+            "mrb": "Morbi",
+            "gnd": "Gondal",
+            "prb": "Porbandar",
+            "bhj": "Bhuj",
+            "gdm": "Gandhidham",
+            "anj": "Anjar",
+            "adp": "Adipur",
+            "mdr": "Mundra",
+            "amr": "Amreli",
+            "bvn": "Bhavnagar",
+            "jtp": "Jetpur",
+            "drj": "Dhoraji",
+            "upl": "Upleta",
+            "ksd": "Kesod",
+            "vrv": "Veraval",
+            "klv": "Kalavad",
+            "drl": "Dhrol",
+            "jdy": "Jodiya",
+            "kby": "Jamkhabhadiya",
+            "dwk": "Dwarka",
+            "mdv": "Mandvi (kutch)",
+            "sng": "Surendranagar"
+          }
+        },
+        "search": {
+          "caption": "Search"
+        }
+      }
     },
     "activity": {
       "title": "activity"
@@ -19,9 +71,24 @@
       "title": "Contact"
     }
   },
+  "pagination": {
+    "pages": "Pages",
+    "gotopg": {
+      "notice": "Jump To Page Number",
+      "error": "Invalid number entered !"
+    },
+    "next": "Next",
+    "prev": "Previous",
+    "first": "First",
+    "last": "Last"
+  },
   "site": {
     "name": "Maitrisangath",
     "slogan": "New defination of retired persons friendship."
+  },
+  "general": {
+    "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"],
+    "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
   },
   "lang": {
     "label": "Language",
