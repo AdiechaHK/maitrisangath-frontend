@@ -3,6 +3,7 @@
     "home": {
       "title": "Home",
       "block": {
+        "birthday_wishes": "Happy Birthday Dear",
         "birthday_heading": "Upcomming Birthdays",
         "birthday_statement": "{name} is turning {age} years on {date} {month} ({day})",
         "news_heading": "News by maitrisangath",

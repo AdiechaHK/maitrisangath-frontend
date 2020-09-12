@@ -3,6 +3,7 @@
     "home": {
       "title": "Home",
       "block": {
+        "birthday_wishes": "જન્મદિવસની ખુબ ખુબ શુભકામનાઓ",
         "birthday_heading": "આવનાર જન્મદિવસ",
         "birthday_statement": "{name}, {date} {month} ({day}) ના રોજ {age} વર્ષ પુરા કરે છે.",
         "news_heading": "સમાચાર",
