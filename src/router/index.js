@@ -34,12 +34,17 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/Activity.vue')
   },
   {
-    path: '/gov-rules',
+    path: '/activity/:id',
+    name: 'ActivityDetail',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ActivityDetail.vue')
+  },
+  {
+    path: '/gov-rules/:rid?',
     name: 'GovRules',
     component: () => import(/* webpackChunkName: "about" */ '../views/GovRules.vue')
   },
   {
-    path: '/articles',
+    path: '/articles/:rid?',
     name: 'Articles',
     component: () => import(/* webpackChunkName: "about" */ '../views/Articles.vue')
   },

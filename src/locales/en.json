@@ -63,13 +63,43 @@
       "title": "activity"
     },
     "govrules": {
-      "title": "Gov. Rules"
+      "title": "Gov. Rules",
+      "no_description": "No Description yet.",
+      "show_pdf": "Show PDF",
+      "download": "Download",
+      "link_caption": "Visit for more detail"
     },
     "articles": {
-      "title": "Articles"
+      "title": "Articles",
+      "no_description": "No Description yet.",
+      "show_pdf": "Show PDF",
+      "download": "Download",
+      "link_caption": "Visit for more detail"
     },
     "contact": {
-      "title": "Contact"
+      "title": "Contact",
+      "address": {
+        "label": "Address",
+        "line1": "27-B Bhaktinagar, GIDC Main road,",
+        "line2": "Near Lalji Mulji Transport,",
+        "line3": "Opp Swaraj Logistic,",
+        "line4": "Rajkot, Gujarat - 360001"        
+      },
+      "admin": {
+        "label": "Contact",
+        "list": [{
+          "name": "V. N. Hirpara",
+          "mobile": "+91-972-562-8986"
+        },
+        {
+          "name": "J. T. Thummar",
+          "mobile": "+91-903-320-7643"
+        },
+        {
+          "name": "D. R. Zala",
+          "mobile": "+91-942-642-9700"
+        }]
+      }
     }
   },
   "pagination": {
