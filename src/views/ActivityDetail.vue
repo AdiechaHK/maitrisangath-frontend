@@ -1,19 +1,36 @@
 <template>
-  <div class="activity-detail">
-    Activity details
+  <div class="activity-detail continer">
+    <section class="heading row">
+      <div class="col-3">
+        <img :src="album|coverImage" class="cover-photo">
+      </div>
+      <div class="col-9 cnt">
+        <h1>{{ album.name }}</h1>
+        <h4>{{ album.description }}</h4>
+      </div>
+    </section>
+    <section class="body row">
+
+      <gallary :photos="album.photos"></gallary>
+
+    </section>
   </div>
 </template>
 
 
 <script>
 
+import Gallary from '@/components/Gallary.vue'
+
 import axios from 'axios'
 
 export default {
   name: 'Activity',
+  components: { Gallary },
   data() { 
     return {
-      list: []
+      list: [],
+      album: null
     }
   },
   filters: {
@@ -24,6 +41,7 @@ export default {
       const res = await axios.get('https://raw.githubusercontent.com/AdiechaHK/maitrisangath-data/master/albums.json');
       if (res.status == 200) {
         this.list = res.data.data;
+        this.album = res.data.data.reduce((s,a) => a.id == this.$route.params.id ? a: s, null);
       }
     } catch (e) {
       console.error(e.message);

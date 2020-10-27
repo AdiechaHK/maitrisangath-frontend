@@ -11,7 +11,11 @@
             <div class="col-8 cnt">
                 <h1>{{ album.name }}</h1>
                 <h4>{{ album.description }}</h4>
-                <a href="#" class="btn btn-success"> Show Album </a>
+                <router-link
+                  class="btn btn-success"
+                  :to="'/activity/' + album.id">
+                  {{ $t('sections.activity.showAlbum') }}
+                </router-link>
             </div>
             <!-- @if($indx % 2) -->
             <div class="col-4" v-if="indx % 2 === 1">
