@@ -1,6 +1,6 @@
 <template>
   <div class="activity-detail continer">
-    <section class="heading row">
+    <section class="heading row" v-if="album">
       <div class="col-3">
         <img :src="album|coverImage" class="cover-photo">
       </div>
@@ -9,7 +9,7 @@
         <h4>{{ album.description }}</h4>
       </div>
     </section>
-    <section class="body row">
+    <section class="body row" v-if="album">
 
       <gallary :photos="album.photos"></gallary>
 
