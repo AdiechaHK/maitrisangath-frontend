@@ -1,7 +1,5 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/maitrisangath-frontend/'
-    : '/',
+  publicPath: '/',
 
   pluginOptions: {
     i18n: {
